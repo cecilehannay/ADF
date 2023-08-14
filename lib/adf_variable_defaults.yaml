@@ -413,8 +413,8 @@ PRECT:
   mpl:
     colorbar:
       label : "mm d$^{-1}$"
-  obs_file: "ERAI_all_climo.nc"
-  obs_name: "ERAI"
+  obs_file: "GPCP_all_climo.nc"
+  obs_name: "GPCP"
   obs_var_name: "PRECT"
   category: "Hydrologic cycle"
 

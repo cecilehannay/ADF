@@ -240,6 +240,7 @@ def zonal_mean(adfobj):
 
                 #Loop over season dictionary:
                 for s in seasons:
+                    print(f'"cecile: season", {s}')
                     mseasons[s] = mdata.sel(time=seasons[s]).mean(dim='time')
                     oseasons[s] = odata.sel(time=seasons[s]).mean(dim='time')
 
