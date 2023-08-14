@@ -387,6 +387,9 @@ class AdfDiag(AdfWeb):
             start_year = start_years[case_idx]
             end_year   = end_years[case_idx]
 
+            print(type(start_year))
+            print(type(end_year))
+
             #Create path object for the CAM history file(s) location:
             starting_location = Path(cam_hist_locs[case_idx])
 
@@ -724,8 +727,8 @@ class AdfDiag(AdfWeb):
             data_name = self.get_baseline_info('cam_case_name', required=True)
 
             #Attempt to grab baseline start_years (not currently required):
-            syear_baseline = self.get_baseline_info('start_year')
-            eyear_baseline = self.get_baseline_info('end_year')
+            syear_baseline = self.climo_yrs["syear_baseline"]
+            eyear_baseline = self.climo_yrs["eyear_baseline"]
 
             #If years exist, then add them to the data_name string:
             if syear_baseline and eyear_baseline:
@@ -773,8 +776,8 @@ class AdfDiag(AdfWeb):
             data_name = self.get_baseline_info('cam_case_name', required=True)
 
             #Attempt to grab baseline start_years (not currently required):
-            syear_baseline = self.get_baseline_info('start_year')
-            eyear_baseline = self.get_baseline_info('end_year')
+            syear_baseline = self.climo_yrs["syear_baseline"]
+            eyear_baseline = self.climo_yrs["eyear_baseline"]
 
             #If years exist, then add them to the data_name string:
             if syear_baseline and eyear_baseline:
@@ -803,10 +806,10 @@ class AdfDiag(AdfWeb):
         case_names = self.get_cam_info('cam_case_name', required=True)
 
         #Start years (not currently required):
-        syears = self.get_cam_info('start_year')
+        syears = self.climo_yrs['syears']
 
         #End year (not currently rquired):
-        eyears = self.get_cam_info('end_year')
+        eyears = self.climo_yrs['eyears']
 
         #Timeseries locations:
         cam_ts_loc = self.get_cam_info('cam_ts_loc')
@@ -824,8 +827,8 @@ class AdfDiag(AdfWeb):
         #check to see if there is a CAM baseline case. If there is, read in relevant information.
         if not self.get_basic_info('compare_obs'):
             case_name_baseline = self.get_baseline_info('cam_case_name')
-            syears_baseline = self.get_baseline_info('start_year')
-            eyears_baseline = self.get_baseline_info('end_year')
+            syears_baseline = self.climo_yrs['syear_baseline']
+            eyears_baseline = self.climo_yrs['eyear_baseline']
             baseline_ts_loc = self.get_baseline_info('cam_ts_loc')
         #End if
 
